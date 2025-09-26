@@ -1,7 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"NotMe/clipboard"
+	"fmt"
+)
 
 func main() {
-	fmt.Println("Hello, NotMe!")
+	for {
+		ip := <-clipboard.Chan
+		fmt.Println(len(ip))
+		for _, a := range ip {
+			fmt.Println(a)
+		}
+	}
+
 }
