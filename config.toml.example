@@ -1,0 +1,16 @@
+[[xlsx]]
+path = "file1.xlsx"
+sheet = "Sheet1"
+col = "A"
+pass = "password123"
+
+[[xlsx]]
+path = "file2.xlsx"
+sheet = "Sheet2"
+col = "B"
+pass = ""
+
+# 存在密码请设置密码
+pass="xxx"
+[[text]]
+path="xxx.txt"

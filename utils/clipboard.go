@@ -1,12 +1,17 @@
-package clipboard
+package utils
 
 import (
 	"strconv"
 	"strings"
+	"unicode/utf8"
 )
 
+type clipboard struct{}
+
+var Clipboard clipboard
+
 // IsValidIPv4 判断字符串是否是有效的 IPv4 地址（不包括掩码）
-func isValidIPv4(ip string) bool {
+func (clipboard) IsValidIPv4(ip string) bool {
 	ip = strings.ReplaceAll(ip, "\r", "")
 
 	if strings.Contains(ip, "/") {
@@ -38,7 +43,7 @@ func isValidIPv4(ip string) bool {
 	return true
 }
 
-func splitByNewline(input string) []string {
+func (clipboard) SplitByNewline(input string) []string {
 	if input == "" {
 		return []string{}
 	}
@@ -53,4 +58,8 @@ func splitByNewline(input string) []string {
 		}
 	}
 	return result
+}
+
+func (clipboard) IsProbablyText(s string) bool {
+	return utf8.ValidString(s)
 }

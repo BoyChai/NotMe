@@ -1,6 +1,7 @@
 package clipboard
 
 import (
+	"NotMe/utils"
 	"time"
 
 	"github.com/atotto/clipboard"
@@ -11,6 +12,9 @@ var Chan = make(chan []string)
 var lastContent string
 
 func init() {
+
+	utils := utils.Clipboard
+
 	pollInterval := 500 * time.Millisecond
 	go func() {
 		for {
@@ -18,16 +22,20 @@ func init() {
 			if err != nil {
 				continue
 			}
+			if !utils.IsProbablyText(currentContent) {
+				continue
+			}
 			if currentContent == lastContent || currentContent == "" {
 				continue
 			}
 			lastContent = currentContent
-			data := splitByNewline(currentContent)
+			data := utils.SplitByNewline(currentContent)
 			var list []string
 
 			for _, line := range data {
-				if isValidIPv4(line) {
+				if utils.IsValidIPv4(line) {
 					list = append(list, line)
+					continue
 				}
 			}
 			Chan <- list
