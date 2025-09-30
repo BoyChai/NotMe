@@ -19,15 +19,16 @@ func init() {
 	go func() {
 		for {
 			currentContent, err := clipboard.ReadAll()
-			if err != nil {
+			if err != nil || currentContent == "" || currentContent == lastContent {
+				time.Sleep(pollInterval)
 				continue
 			}
+			lastContent = currentContent
+
 			if !utils.IsProbablyText(currentContent) {
 				continue
 			}
-			if currentContent == lastContent || currentContent == "" {
-				continue
-			}
+
 			lastContent = currentContent
 			data := utils.SplitByNewline(currentContent)
 			var list []string
