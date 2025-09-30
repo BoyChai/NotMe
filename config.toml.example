@@ -2,16 +2,15 @@
 path = "file1.xlsx"
 sheet = "Sheet1"
 col = "A"
-pass = "password123"
+desc = "G"
 
 [[xlsx]]
 path = "file2.xlsx"
 sheet = "Sheet2"
 col = "B"
-pass = ""
+desc = "G"
+pass = "password123"
 
-# 存在密码请设置密码
-pass="xxx"
 [[text]]
 path="xxx.txt"
 delim=","

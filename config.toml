@@ -1,0 +1,11 @@
+[[xlsx]]
+path = "example.xlsx"
+sheet = "Sheet1"
+col = "A"
+desc = "G"
+# 无密码留空即可
+# pass = ""
+
+[[text]]
+path="example.txt"
+delim=","
