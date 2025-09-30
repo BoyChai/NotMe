@@ -25,7 +25,8 @@ type Xlsx struct {
 }
 
 type Text struct {
-	Path string `toml:"path"`
+	Path  string `toml:"path"`
+	Delim string `toml:"delim"`
 }
 
 // Config 结构体

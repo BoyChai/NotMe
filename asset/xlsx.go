@@ -8,7 +8,7 @@ import (
 	"github.com/xuri/excelize/v2"
 )
 
-func LoadXlsx(cfg []config.Xlsx) {
+func loadXlsx(cfg []config.Xlsx) {
 
 	utils := utils.Asset
 	for _, c := range cfg {
@@ -45,8 +45,7 @@ func LoadXlsx(cfg []config.Xlsx) {
 					}
 					continue
 				}
-				// 未识别的处理
-				// TODO
+				// TODO: 未识别的处理逻辑
 			}
 		}
 	}

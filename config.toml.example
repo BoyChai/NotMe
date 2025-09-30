@@ -14,3 +14,4 @@ pass = ""
 pass="xxx"
 [[text]]
 path="xxx.txt"
+delim=","

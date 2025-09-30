@@ -24,7 +24,8 @@ var Store assetStore = assetStore{
 // 加载资产
 func init() {
 	var cfg = config.Global
-	LoadXlsx(cfg.XLSX)
+	loadXlsx(cfg.XLSX)
+	loadText(cfg.TEXT)
 	fmt.Printf("总计加载 %d IPs 和 %d CIDRs\n", len(Store.IPs), len(Store.CIDRs))
 }
 
