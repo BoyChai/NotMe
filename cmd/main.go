@@ -27,7 +27,7 @@ func onReady() {
 
 	for {
 		ips := <-clipboard.Chan
-		fmt.Println(len(ips))
+		// fmt.Println(len(ips))
 		isTure, msg := asset.CheckMany(ips)
 		if isTure {
 			err := utils.Notify(msg)
@@ -40,6 +40,4 @@ func onReady() {
 
 func onExit() {
 	close(clipboard.Chan)
-	asset.Store.IPs = nil
-	asset.Store.CIDRs = nil
 }
